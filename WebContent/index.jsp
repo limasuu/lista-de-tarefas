@@ -17,21 +17,23 @@
 			
 				<form>
 					<label for="campo-tarefa" class="descricao-campo">Tarefa</label>
-					<input type="text" name="campo-tarefa" class="campo"/><br/>
+					<input type="text" id="campo-tarefa" class="campo"/><br/>
 					
 					<label for="campo-responsavel" class="descricao-campo">Responsável</label>
-					<input type="text" name="campo-responsavel" class="campo"/><br/>
+					<input type="text" id="campo-responsavel" class="campo"/><br/>
 				
-					<label for="campo-data" class="descricao-campo">Data</label>
-					<input type="text" name="campo-data" class="campo"/><br/>
+					<label for="campo-dia" class="descricao-campo">Data</label>
+					<input type="text" id="campo-dia" class="campo"/>
+					<input type="text" id="campo-mes" class="campo"/>
+					<input type="text" id="campo-ano" class="campo"/><br/>
 					
 					<label for="campo-local" class="descricao-campo">Local</label>
-					<input type="text" name="campo-local" class="campo"/><br/>
+					<input type="text" id="campo-local" class="campo"/><br/>
 					
 					<label for="campo-importante" class="descricao-campo">Importante</label>
-					<input type="checkbox" name="campo-importante" value="true" class="campo-radio"/>
+					<input type="checkbox" id="campo-importante" class="campo-radio"/>
 				
-					<input type="button" value="Salvar"/>
+					<input type="button" value="Salvar" onclick="salvar()"/>
 				</form>
 			
 			</div>		
