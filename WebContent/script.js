@@ -1,25 +1,46 @@
 
 function salvar(){
 
-	var tarefa= document.getElementById("campo-tarefa").value;
-	var responsavel= document.getElementById("campo-responsavel").value;
-		
-	var dia= document.getElementById("campo-dia").value;
-	var mes= document.getElementById("campo-mes").value;
-	var ano= document.getElementById("campo-ano").value;	
-	var data= formataData(dia, mes, ano);
-			
-	var local= document.getElementById("campo-local").value;
-	var importante= document.getElementById("campo-importante").checked;
+	var campos= [document.getElementById("campo-tarefa"),
+		document.getElementById("campo-responsavel"),
+		document.getElementById("campo-dia"),
+		document.getElementById("campo-mes"),
+		document.getElementById("campo-ano"),
+		document.getElementById("campo-local"),
+		document.getElementById("campo-importante")	
+	];
 
-	if(camposPreenchidos(tarefa, responsavel, data, local))
-		inserirNaTabela(tarefa, responsavel, data, local, importante);
+	var dados_campos= pegarDados(campos);
+
+	if(camposPreenchidos(dados_campos)){
+		inserirNaTabela(dados_campos);
+		limparCampos(campos);
+	}	
 		
 }
 
-function formataData(dia, mes, ano){
+function pegarDados(campos){
 
-	var data= null;
+	var dados_campos= new Array();
+	
+	dados_campos[0]= campos[0].value;
+	dados_campos[1]= campos[1].value;
+		
+	var dia= campos[2].value;
+	var mes= campos[3].value;
+	var ano= campos[4].value;
+	
+	dados_campos[2]= formatarData(dia, mes, ano);
+	
+	dados_campos[3]= campos[5].value;
+	dados_campos[4]= campos[6].checked;
+
+	return dados_campos;
+}
+
+function formatarData(dia, mes, ano){
+
+	var data= "";
 	var hoje= new Date();
 
 	if(ano >= hoje.getFullYear() && ano < hoje.getFullYear()+10){
@@ -48,25 +69,28 @@ function formataData(dia, mes, ano){
 	return data;
 }
 
-function camposPreenchidos(tarefa, responsavel, data, local){
+function camposPreenchidos(dados_campos){
 
-	if(tarefa == "" || responsavel == "" ||
-			data == null || local == ""){
-		
-		alert("Todos os campos precisam ser preenchidos corretamente!");		
-		return false;
-	}
+	for(i=0; i<dados_campos.length-1; i++)
+		if(dados_campos[i] == ""){
+			alert("Todos os campos precisam ser preenchidos corretamente!");		
+			return false;		
+		}
+
 	return true;
 }
 
-function inserirNaTabela(tarefa, responsavel, data, local, importante){
+function inserirNaTabela(dados_campos){
 
 	prepararListaTarefas();
 	
-	document.write(tarefa + "<br/>" + responsavel + "<br/>" +
-			data + "<br/>" + local + "<br/>" + 
-			"importante? " + importante);
-	
+	var tabela= document.getElementById("tabela");	
+	var linha= tabela.insertRow();
+		
+	for(i=0; i<dados_campos.length; i++){
+		var celula= linha.insertCell();
+		celula.innerHTML= dados_campos[i];
+	}
 }
 
 function prepararListaTarefas(){
@@ -91,4 +115,10 @@ function prepararListaTarefas(){
 	}
 }
 
+function limparCampos(campos){
 
+	for(i=0; i<campos.length-1; i++)
+		campos[i].value= "";
+		
+	campos[campos.length-1].checked= false;
+}
