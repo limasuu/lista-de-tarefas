@@ -11,14 +11,10 @@ function salvar(){
 			
 	var local= document.getElementById("campo-local").value;
 	var importante= document.getElementById("campo-importante").checked;
-	
-	if(camposPreenchidos(tarefa, responsavel, data, local)){
-	
-		document.write(tarefa + "<br/>" + responsavel + "<br/>" +
-			data + "<br/>" + local + "<br/>" + 
-			"importante? " + importante);
-	
-	}
+
+	if(camposPreenchidos(tarefa, responsavel, data, local))
+		inserirNaTabela(tarefa, responsavel, data, local, importante);
+		
 }
 
 function formataData(dia, mes, ano){
@@ -48,7 +44,7 @@ function formataData(dia, mes, ano){
 			}		
 		}
 	}
-	
+		
 	return data;
 }
 
@@ -61,6 +57,38 @@ function camposPreenchidos(tarefa, responsavel, data, local){
 		return false;
 	}
 	return true;
+}
+
+function inserirNaTabela(tarefa, responsavel, data, local, importante){
+
+	prepararListaTarefas();
+	
+	document.write(tarefa + "<br/>" + responsavel + "<br/>" +
+			data + "<br/>" + local + "<br/>" + 
+			"importante? " + importante);
+	
+}
+
+function prepararListaTarefas(){
+
+	var div_lista_tarefas= document.getElementById("lista-tarefas");
+	
+	if(div_lista_tarefas.childElementCount == 0){
+		
+		var div_tabela_tarefas= document.createElement("div");
+		div_tabela_tarefas.id= "tabela_tarefas";
+		
+		var div_exibe_tarefa= document.createElement("div");
+		div_exibe_tarefa.id= "exibe_tarefa";
+				
+		div_lista_tarefas.appendChild(div_tabela_tarefas);
+		div_lista_tarefas.appendChild(div_exibe_tarefa);
+		
+		var tabela= document.createElement("table");
+		tabela.id= "tabela";
+		
+		div_tabela_tarefas.appendChild(tabela);
+	}
 }
 
 

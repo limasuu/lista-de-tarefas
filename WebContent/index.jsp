@@ -13,9 +13,9 @@
 	
 		<div class="principal">
 		
-			<div class="entrada-tarefas">
+			<div id="entrada-tarefas">
 			
-				<form>
+				<form id="a">
 					<label for="campo-tarefa" class="descricao-campo">Tarefa</label>
 					<input type="text" id="campo-tarefa" class="campo"/><br/>
 					
@@ -37,7 +37,7 @@
 				</form>
 			
 			</div>		
-			<div class="lista-tarefas">
+			<div id="lista-tarefas">
 			
 			
 			</div>
