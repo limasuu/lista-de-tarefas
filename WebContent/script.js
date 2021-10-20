@@ -15,6 +15,7 @@ function salvar(){
 	if(camposPreenchidos(dados_campos)){
 		inserirNaTabela(dados_campos);
 		limparCampos(campos);
+		atualizarInformacoes();
 	}	
 		
 }
@@ -122,3 +123,36 @@ function limparCampos(campos){
 		
 	campos[campos.length-1].checked= false;
 }
+
+function atualizarInformacoes(){
+
+	prepararInformacoesTarefas();
+
+	var tabela= document.getElementById("tabela");
+	var para_qntd= document.getElementById("paragrafo-qntd");
+	var para_data_hora= document.getElementById("paragrafo-data-hora");		
+	
+	para_qntd.innerHTML= "Numero de tarefas: " + tabela.rows.length;	
+	para_data_hora.innerHTML= "Ultima atualizacao: " + new Date().toLocaleString([], {dateStyle: "long", timeStyle: "short"});	
+}
+
+function prepararInformacoesTarefas(){
+
+	var div_info_tarefas= document.getElementById("info-tarefas");
+	
+	if(div_info_tarefas.childElementCount == 0){
+	
+		var para_qntd= document.createElement("p");
+		para_qntd.id= "paragrafo-qntd";
+		
+		var para_data_hora= document.createElement("p");
+		para_data_hora.id= "paragrafo-data-hora";			
+				
+		div_info_tarefas.appendChild(para_qntd);
+		div_info_tarefas.appendChild(para_data_hora);	
+	}	
+}
+
+
+
+

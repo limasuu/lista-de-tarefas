@@ -15,26 +15,33 @@
 		
 			<div id="entrada-tarefas">
 			
-				<form id="a">
-					<label for="campo-tarefa" class="descricao-campo">Tarefa</label>
-					<input type="text" id="campo-tarefa" class="campo"/><br/>
+				<div id="entrada">
+					<form>
+						<label for="campo-tarefa" class="descricao-campo">Tarefa</label>
+						<input type="text" id="campo-tarefa" class="campo"/><br/>
+						
+						<label for="campo-responsavel" class="descricao-campo">Responsável</label>
+						<input type="text" id="campo-responsavel" class="campo"/><br/>
 					
-					<label for="campo-responsavel" class="descricao-campo">Responsável</label>
-					<input type="text" id="campo-responsavel" class="campo"/><br/>
+						<label for="campo-dia" class="descricao-campo">Data</label>
+						<input type="text" id="campo-dia" class="campo"/>
+						<input type="text" id="campo-mes" class="campo"/>
+						<input type="text" id="campo-ano" class="campo"/><br/>
+						
+						<label for="campo-local" class="descricao-campo">Local</label>
+						<input type="text" id="campo-local" class="campo"/><br/>
+						
+						<label for="campo-importante" class="descricao-campo">Importante</label>
+						<input type="checkbox" id="campo-importante" class="campo-radio"/>
+					
+						<input type="button" value="Salvar" onclick="salvar()"/>
+					</form>
+				</div>
 				
-					<label for="campo-dia" class="descricao-campo">Data</label>
-					<input type="text" id="campo-dia" class="campo"/>
-					<input type="text" id="campo-mes" class="campo"/>
-					<input type="text" id="campo-ano" class="campo"/><br/>
-					
-					<label for="campo-local" class="descricao-campo">Local</label>
-					<input type="text" id="campo-local" class="campo"/><br/>
-					
-					<label for="campo-importante" class="descricao-campo">Importante</label>
-					<input type="checkbox" id="campo-importante" class="campo-radio"/>
-				
-					<input type="button" value="Salvar" onclick="salvar()"/>
-				</form>
+				<div id="info-tarefas">
+			
+			
+				</div>
 			
 			</div>		
 			<div id="lista-tarefas">
