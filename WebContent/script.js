@@ -102,6 +102,58 @@ function inserirNaTabela(tarefa){
 				
 	var celula= linha.insertCell();
 	celula.innerHTML= tarefa.nome;
+	
+	celula.onmouseover= function(){
+		var div_exibe_tarefa= document.getElementById("exibe_tarefa");
+		
+		var para_nome= document.createElement("p");
+		para_nome.id= "paragrafo-nome";
+		para_nome.innerHTML= tarefa.nome;
+		div_exibe_tarefa.appendChild(para_nome);
+		
+		var para_responsavel= document.createElement("p");
+		para_responsavel.id= "paragrafo-responsavel";
+		para_responsavel.innerHTML= tarefa.responsavel;
+		div_exibe_tarefa.appendChild(para_responsavel);
+		
+		var para_data= document.createElement("p");
+		para_data.id= "paragrafo-data";
+		para_data.innerHTML= tarefa.data;
+		div_exibe_tarefa.appendChild(para_data);
+		
+		var para_local= document.createElement("p");
+		para_local.id= "paragrafo-local";
+		para_local.innerHTML= tarefa.local;
+		div_exibe_tarefa.appendChild(para_local);
+		
+		if(tarefa.importante == true){
+			var para_importante= document.createElement("p");
+			para_importante.id= "paragrafo-importante";
+			para_importante.innerHTML= "importante!";
+			div_exibe_tarefa.appendChild(para_importante);
+		}		
+	};
+	
+	celula.onmouseout= function(){
+		var div_exibe_tarefa= document.getElementById("exibe_tarefa");
+		
+		var para_nome= document.getElementById("paragrafo-nome");
+		div_exibe_tarefa.removeChild(para_nome);
+		
+		var para_responsavel= document.getElementById("paragrafo-responsavel");
+		div_exibe_tarefa.removeChild(para_responsavel);
+		
+		var para_data= document.getElementById("paragrafo-data");
+		div_exibe_tarefa.removeChild(para_data);
+		
+		var para_local= document.getElementById("paragrafo-local");
+		div_exibe_tarefa.removeChild(para_local);
+		
+		if(tarefa.importante == true){
+			var para_importante= document.getElementById("paragrafo-importante");
+			div_exibe_tarefa.removeChild(para_importante);
+		}
+	};
 }
 
 function prepararListaTarefas(){
