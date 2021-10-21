@@ -1,3 +1,14 @@
+function Tarefa(id, nome, responsavel, data, local, importante){
+
+	this.id= id;
+	this.nome= nome;
+	this.responsavel= responsavel;
+	this.data= data;
+	this.local= local;
+	this.importante= importante;
+}
+
+var tarefas= new Array();
 
 function salvar(){
 
@@ -10,33 +21,35 @@ function salvar(){
 		document.getElementById("campo-importante")	
 	];
 
-	var dados_campos= pegarDados(campos);
+	var tarefa= criarTarefa(campos);
 
-	if(camposPreenchidos(dados_campos)){
-		inserirNaTabela(dados_campos);
+	if(camposPreenchidos(tarefa)){		
+	
+		inserirNaTabela(tarefa);
 		limparCampos(campos);
 		atualizarInformacoes();
 	}	
 		
 }
 
-function pegarDados(campos){
+function criarTarefa(campos){
 
-	var dados_campos= new Array();
-	
-	dados_campos[0]= campos[0].value;
-	dados_campos[1]= campos[1].value;
+	var nome= campos[0].value;
+	var responsavel= campos[1].value;
 		
 	var dia= campos[2].value;
 	var mes= campos[3].value;
 	var ano= campos[4].value;
 	
-	dados_campos[2]= formatarData(dia, mes, ano);
+	var data= formatarData(dia, mes, ano);
 	
-	dados_campos[3]= campos[5].value;
-	dados_campos[4]= campos[6].checked;
+	var local= campos[5].value;
+	var importante= campos[6].checked;
+		
+	var tarefa= new Tarefa(tarefas.length, nome, responsavel, data, local, importante);
+	tarefas[tarefas.length]= tarefa;
 
-	return dados_campos;
+	return tarefa;
 }
 
 function formatarData(dia, mes, ano){
@@ -70,28 +83,25 @@ function formatarData(dia, mes, ano){
 	return data;
 }
 
-function camposPreenchidos(dados_campos){
+function camposPreenchidos(tarefa){
 
-	for(i=0; i<dados_campos.length-1; i++)
-		if(dados_campos[i] == ""){
-			alert("Todos os campos precisam ser preenchidos corretamente!");		
-			return false;		
-		}
+	if(tarefa.nome == "" || tarefa.responsavel == "" || tarefa.data == "" || tarefa.local == ""){
+		alert("Todos os campos precisam ser preenchidos corretamente!");		
+		return false;		
+	}
 
 	return true;
 }
 
-function inserirNaTabela(dados_campos){
+function inserirNaTabela(tarefa){
 
 	prepararListaTarefas();
 	
 	var tabela= document.getElementById("tabela");	
 	var linha= tabela.insertRow();
-		
-	for(i=0; i<dados_campos.length; i++){
-		var celula= linha.insertCell();
-		celula.innerHTML= dados_campos[i];
-	}
+				
+	var celula= linha.insertCell();
+	celula.innerHTML= tarefa.nome;
 }
 
 function prepararListaTarefas(){
