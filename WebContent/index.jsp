@@ -9,7 +9,7 @@
 	</head>
 	<body>
 	
-		<h1>Lista de tarefas</h1>
+		<h1 class="titulo-principal">Lista de tarefas</h1>
 	
 		<div class="principal">
 		
@@ -40,13 +40,87 @@
 				
 				<div id="info-tarefas">
 			
+					<!-- APAGAR DAQUI PRA BAIXO ------------------------------------------------------------------------------- -->
+						
+						<p id="paragrafo-qntd">Numero de tarefas: X</p>
+						<p id="paragrafo-data-hora">Ultima atualizacao: 00/00/0000 00:00</p>
+						
+					<!-- APAGAR DAQUI PRA CIMA ------------------------------------------------------------------------------- -->
 			
 				</div>
 			
 			</div>		
 			<div id="lista-tarefas">
 			
-			
+				<div id="tabela_tarefas"> <!-- APAGAR DAQUI PRA BAIXO ------------------------------------------------------------------------------- -->
+						
+						<table id="tabela">
+							<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+								<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+								<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+								<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+							<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+								<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+								<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+								<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+							<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+								<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+								<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+								<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+							<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+								<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+								<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+								<tr>
+								<td>ESTA EH UMA LINHA DE TESTE</td>
+							</tr>
+						</table>
+						
+				</div> 
+				
+				<div id="exibe_tarefa"> 
+						
+						
+						<p id="paragrafo-nome">Nome da taaaaaaarefa</p>
+						<p id="paragrafo-responsavel">Respoooooonsável pela taarefa</p>
+						<p id="paragrafo-data">00/00/0000 00:00</p>
+						<p id="paragrafo-local">Loocaaaaaaaal da taaaarefa</p>
+						<p id="paragrafo-importante">Importante!</p>
+						
+						
+						
+				</div>  <!-- APAGAR DAQUI PRA CIMA ------------------------------------------------------------------------------- -->
+				
+				
 			</div>
 				
 		</div>
