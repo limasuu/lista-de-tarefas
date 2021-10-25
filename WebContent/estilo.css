@@ -1,5 +1,6 @@
 :root {
 	--destaque: rgb(32, 74, 135);
+	--contrastante: rgb(54,54,54);
 }
 /*--------------------------------------------------------------*/
 *{
@@ -14,6 +15,8 @@ table, td{
 /*--------------------------------------------------------------*/
 body{	
 	padding: 20px;
+	
+	color: var(--contrastante);	
 }
 
 .titulo-principal{		
@@ -58,7 +61,7 @@ body{
 	align-items: center;
 }
 /*--------------------------------------------------------------*/
-#entrada{border: 1px solid green;
+#entrada{
 
 	width: 80%;
 	padding: 10px;
@@ -88,3 +91,32 @@ body{
 	width: 70%;
 	padding: 10px;	
 }
+/*--------------------------------------------------------------*/
+.linha-entrada{
+	
+	margin-bottom: 5px;
+	
+	display: flex;
+	align-items: center;	
+}
+
+.descricao-campo{
+	width: 120px;	
+}
+
+.campo{ 
+	width: 300px;
+	padding: 5px;	
+	
+	color: var(--contrastante);	
+}
+
+.campo:focus{	
+	 border: 2px solid var(--contrastante);	
+}
+
+.campo-data input[type=text]{
+	width: 35px;
+}
+
+
