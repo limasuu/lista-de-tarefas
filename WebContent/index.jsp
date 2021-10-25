@@ -56,7 +56,7 @@
 							<input type="checkbox" id="campo-importante" class="campo-check"/>
 						</div>		
 													
-						<input type="button" value="Salvar" onclick="salvar()"/>
+						<input type="button" class="botao" value="Salvar" onclick="salvar()"/>
 					</form>
 				</div>
 				
