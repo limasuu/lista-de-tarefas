@@ -65,7 +65,7 @@
 					<!-- APAGAR DAQUI PRA BAIXO ------------------------------------------------------------------------------- -->
 						
 						<p id="paragrafo-qntd">Numero de tarefas: X</p>
-						<p id="paragrafo-data-hora">Ultima atualizacao: 00/00/0000 00:00</p>
+						<p id="paragrafo-data-hora">Ultima atualizacao: 00 de xxxxxxxx de 0000 00:00</p>
 						
 					<!-- APAGAR DAQUI PRA CIMA ------------------------------------------------------------------------------- -->
 			
