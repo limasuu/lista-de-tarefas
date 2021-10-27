@@ -9,10 +9,6 @@
 	margin: 0px;
 }
 
-table, td{	
-	border: 1px solid var(--destaque);
-	border-collapse: collapse;
-}
 /*--------------------------------------------------------------*/
 body{	
 	padding: 20px;
@@ -79,11 +75,14 @@ body{
 	border-radius: 5px;
 }
 /*--------------------------------------------------------------*/
-#tabela_tarefas{border: 1px solid green;
+#tabela_tarefas{
 	
 	width: 70%;
 	height: 50%;
 	padding: 10px;	
+	
+	border-top: 1px solid var(--contrastante); 
+	border-bottom: 1px solid var(--contrastante);
 		
 	overflow: scroll;
 	
@@ -138,5 +137,16 @@ body{
 #info-tarefas :first-child{
 	margin-bottom: 5px;	
 }
+/*--------------------------------------------------------------*/
+td{	
+	padding-top: 5px;
+	
+	border-bottom: 1px solid var(--destaque); 
+}
 
-
+td:hover {
+	background-color: var(--destaque); 
+	color: var(--base);
+	
+	cursor: default;
+}
