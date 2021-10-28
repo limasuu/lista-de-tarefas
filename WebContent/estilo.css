@@ -1,14 +1,14 @@
 :root {
 	--destaque: rgb(32, 74, 135);
+	--destaque-transparente: rgba(32, 74, 135, 0.8);
 	--base: white;
 	--contrastante: rgb(54,54,54);
 }
-/*--------------------------------------------------------------*/
+
 *{
 	padding: 0px;
 	margin: 0px;
 }
-
 /*--------------------------------------------------------------*/
 body{	
 	padding: 20px;
@@ -17,8 +17,7 @@ body{
 	background-color: var(--base);
 }
 
-.titulo-principal{		
-	
+.titulo-principal{			
 	padding-bottom: 20px;
 	
 	text-align: center;	
@@ -26,20 +25,19 @@ body{
 	color: var(--destaque);
 }
 
-.principal{	border: 1px solid var(--destaque);
-
+.principal{	
 	height: 400px;	
 	padding: 20px;	
+	
+	border: 1px solid var(--destaque);
 	
 	display: flex;	
 }
 /*--------------------------------------------------------------*/
-#entrada-tarefas{
-	
+#entrada-tarefas{	
 	width: 50%;
 	
-	padding-right: 20px;
-	border-right: 1px solid var(--destaque);
+	padding-right: 20px;	
 	
 	display: flex;
 	flex-direction: column;
@@ -47,8 +45,7 @@ body{
 	justify-content: space-around;	
 }
 
-#lista-tarefas{
-	
+#lista-tarefas{	
 	width: 50%;
 	padding-left: 20px;
 	
@@ -60,23 +57,19 @@ body{
 }
 /*--------------------------------------------------------------*/
 #entrada{
-
 	width: 80%;
-	padding: 10px;
-	
+	padding: 10px;	
 }
 
-#info-tarefas{
-	
+#info-tarefas{	
 	width: 70%;
+	height: 10%;
 	padding: 10px;	
 	
-	border: 1px solid var(--contrastante);
 	border-radius: 5px;
 }
 /*--------------------------------------------------------------*/
-#tabela_tarefas{
-	
+#tabela_tarefas{	
 	width: 70%;
 	height: 50%;
 	padding: 10px;	
@@ -87,17 +80,23 @@ body{
 	overflow: scroll;
 	
 	display: flex;
-	justify-content: center;
+	justify-content: center;	
 }
 
-#exibe_tarefa{border: 1px solid green;
-
+#exibe_tarefa{
 	width: 70%;
+	height: 30%;
+	
 	padding: 10px;	
+	
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+	color: var(--base);
 }
 /*--------------------------------------------------------------*/
-.linha-entrada{
-	
+.linha-entrada{	
 	margin-bottom: 5px;
 	
 	display: flex;
@@ -150,3 +149,12 @@ td:hover {
 	
 	cursor: default;
 }
+/*--------------------------------------------------------------*/
+#exibe_tarefa p{
+	margin-bottom: 3px;		
+}
+
+#exibe_tarefa :last-child{
+	margin-bottom: 0;		
+}
+
