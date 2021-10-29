@@ -74,7 +74,7 @@ function formatarData(dia, mes, ano){
 					(ano == hoje.getFullYear() && mes == (hoje.getMonth()+1) && dia >= hoje.getDate()) )){
 				
 				mes--;				
-				data= new Date(ano, mes, dia).toLocaleString([], {dateStyle: "short"});			
+				data= new Date(ano, mes, dia).toLocaleString([], {dateStyle: "long"});			
 			}		
 		}
 	}		
@@ -87,7 +87,27 @@ function camposPreenchidos(tarefa){
 		alert("Todos os campos precisam ser preenchidos corretamente!");		
 		return false;		
 	}
-
+	
+	var linha= tarefa.nome;
+	if(tarefa.importante == true)
+		linha+= " (importante!)";
+	if(linha.length > 40){
+		alert("O nome da tarefa deve ser menor!");		
+		return false;	
+	}
+	
+	linha= tarefa.responsavel + " - " + tarefa.data;
+	if(linha.length > 40){
+		alert("O nome do responsavel deve ser menor!");		
+		return false;	
+	}
+	
+	linha= tarefa.local;
+	if(linha.length > 40){
+		alert("O nome do local deve ser menor!");		
+		return false;	
+	}
+	
 	return true;
 }
 
@@ -109,30 +129,21 @@ function inserirNaTabela(tarefa){
 		
 		var para_nome= document.createElement("p");
 		para_nome.id= "paragrafo-nome";
-		para_nome.innerHTML= tarefa.nome;
+		if(tarefa.importante == true)
+			para_nome.innerHTML= tarefa.nome + " (importante!)";
+		else
+			para_nome.innerHTML= tarefa.nome;
 		div_exibe_tarefa.appendChild(para_nome);
 		
-		var para_responsavel= document.createElement("p");
-		para_responsavel.id= "paragrafo-responsavel";
-		para_responsavel.innerHTML= tarefa.responsavel;
-		div_exibe_tarefa.appendChild(para_responsavel);
-		
-		var para_data= document.createElement("p");
-		para_data.id= "paragrafo-data";
-		para_data.innerHTML= tarefa.data;
-		div_exibe_tarefa.appendChild(para_data);
-		
+		var para_responsavel_data= document.createElement("p");
+		para_responsavel_data.id= "paragrafo-responsavel-data";
+		para_responsavel_data.innerHTML= tarefa.responsavel + " - " + tarefa.data;
+		div_exibe_tarefa.appendChild(para_responsavel_data);
+				
 		var para_local= document.createElement("p");
-		para_local.id= "paragrafo-local";
+		para_local.id= "paragrafo-local";	
 		para_local.innerHTML= tarefa.local;
-		div_exibe_tarefa.appendChild(para_local);
-		
-		if(tarefa.importante == true){
-			var para_importante= document.createElement("p");
-			para_importante.id= "paragrafo-importante";
-			para_importante.innerHTML= "importante!";
-			div_exibe_tarefa.appendChild(para_importante);
-		}		
+		div_exibe_tarefa.appendChild(para_local);		
 	};
 	
 	celula.onmouseout= function(){
@@ -144,19 +155,11 @@ function inserirNaTabela(tarefa){
 		var para_nome= document.getElementById("paragrafo-nome");
 		div_exibe_tarefa.removeChild(para_nome);
 		
-		var para_responsavel= document.getElementById("paragrafo-responsavel");
-		div_exibe_tarefa.removeChild(para_responsavel);
-		
-		var para_data= document.getElementById("paragrafo-data");
-		div_exibe_tarefa.removeChild(para_data);
+		var para_responsavel_data= document.getElementById("paragrafo-responsavel-data");
+		div_exibe_tarefa.removeChild(para_responsavel_data);
 		
 		var para_local= document.getElementById("paragrafo-local");
 		div_exibe_tarefa.removeChild(para_local);
-		
-		if(tarefa.importante == true){
-			var para_importante= document.getElementById("paragrafo-importante");
-			div_exibe_tarefa.removeChild(para_importante);
-		}
 	};
 }
 
